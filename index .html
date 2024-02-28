@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Simple Messaging Project</title>
+</head>
+<body>
+
+<div class="container">
+    <div id="messages"></div>
+    <input type="text" id="messageInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+    function sendMessage() {
+    const messageInput = document.getElementById('messageInput');
+    const messagesContainer = document.getElementById('messages');
+    
+    const message = messageInput.value;
+    
+    if (message.trim() !== '') {
+        const newMessage = document.createElement('div');
+        newMessage.innerText = `You: ${message}`;
+        messagesContainer.appendChild(newMessage);
+
+        // You can handle sending the message to a server or other processing here
+
+        messageInput.value = ''; // Clear the input field after sending
+    }
+}
+
+</script>
+
+</body>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#messages {
+    height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 80%;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+</style>
+</html>
